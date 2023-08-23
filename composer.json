@@ -1,0 +1,51 @@
+{
+    "name": "parables/laravel-cuid",
+    "description": "This package allows you to easily work with NanoID in your Laravel models.",
+    "license": "MIT",
+    "keywords": [
+        "eloquent",
+        "laravel",
+        "model",
+        "cuid",
+        "cuid2"
+    ],
+    "authors": [
+        {
+            "name": "Parables Boltnoel",
+            "email": "parables95@gmail.com",
+            "homepage": "https://github.com/parables"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/database": "^8.12|^9.0|^10.0",
+        "illuminate/events": "^8.12|^9.0|^10.0",
+        "illuminate/support": "^8.12|^9.0|^10.0",
+        "visus/cuid2": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Parables\\Cuid\\": "src/"
+        }
+    },
+    "require-dev": {
+        "laravel/legacy-factories": "^1.0.4",
+        "orchestra/testbench": "^6.0|^7.0",
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.x-dev"
+        }
+    }
+}
