@@ -1,6 +1,6 @@
 {
-    "name": "parables/laravel-cuid",
-    "description": "This package allows you to easily work with NanoID in your Laravel models.",
+    "name": "parables/laravel-cuid2",
+    "description": "This package allows you to easily work with Cuid2 in your Laravel models.",
     "license": "MIT",
     "keywords": [
         "eloquent",
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3|^8.0|^8.1|^8.2",
         "illuminate/database": "^8.12|^9.0|^10.0",
         "illuminate/events": "^8.12|^9.0|^10.0",
         "illuminate/support": "^8.12|^9.0|^10.0",

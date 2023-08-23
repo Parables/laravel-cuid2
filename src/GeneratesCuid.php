@@ -70,8 +70,13 @@ trait GeneratesCuid
         static::creating(
             function ($model) {
                 foreach ($model->cuidColumns() as $columnName => $size) {
+                    if (is_string(value: $size)) {
+                        $columnName = $size;
+                        $size = 24;
+                    }
+
                     if (!isset($model->attributes[$columnName])) {
-                        $model->{$columnName} = new Cuid2(maxLength: ($size < 4 || $size > 32) ? null : $size);
+                        $model->{$columnName} = (new Cuid2(maxLength: ($size < 4 || $size > 32) ? 24 : $size))->toString();
                     }
                 }
             }
