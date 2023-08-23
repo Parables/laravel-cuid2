@@ -30,8 +30,16 @@
     },
     "require-dev": {
         "laravel/legacy-factories": "^1.0.4",
+        "marcocesarato/php-conventional-changelog": "^1.17",
         "orchestra/testbench": "^6.0|^7.0",
         "phpunit/phpunit": "^9.3"
+    },
+    "scripts": {
+        "changelog": "conventional-changelog",
+        "release": "conventional-changelog --commit",
+        "release:patch": "conventional-changelog --patch --commit",
+        "release:minor": "conventional-changelog --minor --commit",
+        "release:major": "conventional-changelog --major --commit"
     },
     "autoload-dev": {
         "psr-4": {
