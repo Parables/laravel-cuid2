@@ -1,4 +1,4 @@
-# Laravel-Cuid2
+# laravel-cuid2
 
 > Note: This package uses [Cuid2](https://github.com/visus-io/php-cuid2) as the initial version is deprecated.
 >
@@ -28,7 +28,7 @@ Need unique ids in your app? Forget UUIDs and GUIDs which often collide in large
 This package is installed via [Composer](https://getcomposer.org/). To install, run the following command.
 
 ```bash
-composer require parables/cuid2
+composer require parables/laravel-cuid2
 ```
 
 ## Code Samples
@@ -300,6 +300,7 @@ Most stronger forms of the UUID / GUID algorithms require access to OS services 
 -   [Cuid2 for Java](https://github.com/thibaultmeyer/cuid-java) - [Thibault Meyer](https://github.com/thibaultmeyer)
 -   [Cuid2 for .NET](https://github.com/visus-io/cuid.net) - [Visus](https://github.com/xaevik)
 -   [Cuid2 for PHP](https://github.com/visus-io/php-cuid2) - [Visus](https://github.com/xaevik)
+-   [Cuid2 for Laravel](https://github.com/parables/laravel-cuid2) - [Parables](https://github.com/parables)
 -   [Cuid2 for Python](https://github.com/gordon-code/cuid2) - [Gordon Code](https://github.com/gordon-code)
 -   [Cuid2 for Ruby](https://github.com/stulzer/cuid2/blob/main/lib/cuid2.rb) - [Rubens Stulzer](https://github.com/stulzer)
 -   [Cuid2 for Rust](https://github.com/mplanchard/cuid-rust) - [Matthew Planchard](https://github.com/mplanchard)
@@ -342,7 +343,7 @@ The original Cuid wasted entropy on session counters that were not always used, 
 
 If you are having general issues with this package, feel free to contact me on [Twitter](https://twitter.com/pboltnoel).
 
-If you believe you have found an issue, please report it using the [GitHub issue tracker](https://github.com/Parables/laravel-model-cuid/issues), or better yet, fork the repository and submit a pull request.
+If you believe you have found an issue, please report it using the [GitHub issue tracker](https://github.com/Parables/laravel-cuid2/issues), or better yet, fork the repository and submit a pull request.
 
 If you're using this package, I'd love to hear your thoughts. Thanks!
 
@@ -352,7 +353,7 @@ You're free to use this package, but if it makes it to your production environme
 
 It’s now common knowledge that one of the best tools to tackle the climate crisis and keep our temperatures from rising above 1.5C is to plant trees. If you support this package and contribute to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
 
-You can buy trees [here](https://plant.treeware.earth/michaeldyrynda/laravel-model-cuid)
+You can buy trees [here](https://plant.treeware.earth/michaeldyrynda/laravel-model-uuid)
 
 Read more about Treeware at [treeware.earth](https://treeware.earth)
 
