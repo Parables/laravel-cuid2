@@ -65,19 +65,20 @@ class Post extends Model
 
 ## Use Cuid as primary key
 
-If you choose to use a Cuid as your primary model key (`id`), then use `GeneratesCuidAsPrimaryKey` trait on your model.
+If you choose to use a Cuid as your primary model key (`id`), then use `CuidAsPrimaryKey` trait on your model.
 
 ```php
 <?php
 
 namespace App;
 
-use Parables\Cuid\GeneratesCuidAsPrimaryKey;
+use Parables\Cuid\CuidAsPrimaryKey;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use GeneratesCuidAsPrimaryKey;
+    use CuidAsPrimaryKey;
+
 }
 ```
 

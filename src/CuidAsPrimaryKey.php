@@ -2,7 +2,6 @@
 
 namespace Parables\Cuid;
 
-use Visus\Cuid2\Cuid2;
 
 /**
  * Cuid generation trait.
@@ -10,8 +9,9 @@ use Visus\Cuid2\Cuid2;
  * Note: This generates a Cuid2 as the previous version is deprecated
  *
  * Include this trait in any Eloquent model where you wish to automatically set
- * a Cuid field. When saving, if the `cuid` field has not been set, generate a
- * new Cuid value, which will be set on the model and saved by Eloquent.
+ * a Cuid field. When saving, if the `cuidColumn()` field has not been set,
+ * this trait will generate a new Cuid value which will be set as the
+ * primary key on the model and saved by Eloquent.
  *
  * @author    Parables Boltnoel <parables@github.com>
  * @copyright 2017 Parables Boltnoel
@@ -21,29 +21,17 @@ use Visus\Cuid2\Cuid2;
  */
 trait CuidAsPrimaryKey
 {
+    use GeneratesCuid;
+    use BindsOnCuid;
     /**
-     * Boot the trait, adding a creating observer.
+     * The name of the column that should be used for the Cuid.
      *
-     * Create a new Cuid if the model's attribute has not been set as the primary key.
-     *
-     * This trait explicitly disables auto-incrementing on your Eloquent models
-     *
-     * @return void
+     * @return string
      */
-    public static function bootCuidAsPrimaryKey(): void
+    public function cuidColumn(): string
     {
-        static::creating(
-            function ($model) {
-                $cuid = new Cuid2();
-                $primaryKeyColumn = $model->cuidColumn();
-                $model->$primaryKeyColumn = $cuid;
-                $model->keyType = 'string';
-                $model->incrementing = false;
-                $model->{$model->getKeyName()} = $model->{$model->getKeyName()} ?: (string) $cuid;
-            }
-        );
+        return 'id';
     }
-
 
     public function getIncrementing()
     {
