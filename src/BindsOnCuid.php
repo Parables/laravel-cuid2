@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 trait BindsOnCuid
 {
-    abstract public function cuidColumn(): string;
+    abstract public static function cuidColumn(): string;
 
     /**
      * Get the route key for the model.
@@ -24,7 +24,7 @@ trait BindsOnCuid
      */
     public function getRouteKeyName(): string
     {
-        return $this->cuidColumn();
+        return self::cuidColumn();
     }
 
     /**

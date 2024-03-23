@@ -28,7 +28,7 @@ trait GeneratesCuid
      *
      * @return string
      */
-    public function cuidColumn(): string
+    public static function cuidColumn(): string
     {
         return 'cuid';
     }
@@ -38,9 +38,9 @@ trait GeneratesCuid
      *
      * @return array
      */
-    public function cuidColumns(): array
+    public static function cuidColumns(): array
     {
-        return [$this->cuidColumn()];
+        return [self::cuidColumn()];
     }
 
     /**
@@ -55,9 +55,9 @@ trait GeneratesCuid
     public function scopeWhereCuid($query, $cuid, $cuidColumn = null): Builder
     {
         $cuidColumn = !is_null($cuidColumn) &&
-            in_array($cuidColumn, $this->cuidColumns())
+            in_array($cuidColumn, self::cuidColumns())
             ? $cuidColumn
-            : $this->cuidColumns()[0];
+            : self::cuidColumns()[0];
 
         return $query->whereIn(
             $this->qualifyColumn($cuidColumn),
@@ -69,7 +69,7 @@ trait GeneratesCuid
     {
         static::creating(
             function ($model) {
-                foreach ($model->cuidColumns() as $columnName => $size) {
+                foreach ($model::cuidColumns() as $columnName => $size) {
                     if (is_string(value: $size)) {
                         $columnName = $size;
                         $size = 24;

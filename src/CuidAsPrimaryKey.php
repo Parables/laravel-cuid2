@@ -23,12 +23,27 @@ trait CuidAsPrimaryKey
 {
     use GeneratesCuid;
     use BindsOnCuid;
+
+    /**
+     * Indicates if the model's ID is auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+     /**
+     * The data type of the primary key ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
     /**
      * The name of the column that should be used for the Cuid.
      *
      * @return string
      */
-    public function cuidColumn(): string
+    public static function cuidColumn(): string
     {
         return 'id';
     }
