@@ -25,20 +25,6 @@ trait CuidAsPrimaryKey
     use BindsOnCuid;
 
     /**
-     * Indicates if the model's ID is auto-incrementing.
-     *
-     * @var bool
-     */
-    protected $incrementing = false;
-
-     /**
-     * The data type of the primary key ID.
-     *
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
      * The name of the column that should be used for the Cuid.
      *
      * @return string
