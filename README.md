@@ -51,12 +51,12 @@ class Post extends Model
 
 It is assumed that you already have a field named `cuid` in your database, which is used to store the generated value.
 
-If you wish to use a custom column name, for example if you want your primary `id` column to be a `Cuid`, you can define a `cuidColumn` method in your model.
+If you wish to use a custom column name, for example if you want your primary `id` column to be a `Cuid`, you can define a static `cuidColumn` method in your model.
 
 ```php
 class Post extends Model
 {
-    public function cuidColumn(): string
+    public static function cuidColumn(): string
     {
         return 'id';
     }
@@ -127,7 +127,7 @@ When querying using the `whereCuid()` scope, the default column - specified by `
 ```php
 class Post extends Model
 {
-    public function cuidColumns(): array
+    public static function cuidColumns(): array
     {
         return [$this->cuidColumn(), 'custom_column'];
     }
@@ -137,7 +137,7 @@ class Post extends Model
 The `cuidColumns` must return an array. You can customize the generated `Cuid` for each column. Specify the name of the column as the key and optionally specify the size as an integer value greater than 4 but less than 32(`(($size > 4) && $(size < 32))`).
 
 ```php
-  public function cuidColumns(): array
+  public static function cuidColumns(): array
     {
         // Option 1: array of column names: this will use the default size: `24`
         return ['cuid', 'custom_column'];
