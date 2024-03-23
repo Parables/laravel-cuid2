@@ -50,11 +50,5 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-main": "4.x-dev"
-        }
-    },
-    "version": "4.0.1"
+    }
 }
