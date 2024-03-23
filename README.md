@@ -79,6 +79,20 @@ class Post extends Model
 {
     use CuidAsPrimaryKey;
 
+        /**
+     * The "type" of the primary key ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
 }
 ```
 
@@ -134,7 +148,9 @@ class Post extends Model
 }
 ```
 
-The `cuidColumns` must return an array. You can customize the generated `Cuid` for each column. Specify the name of the column as the key and optionally specify the size as an integer value greater than 4 but less than 32(`(($size > 4) && $(size < 32))`).
+The `cuidColumns` must return an array. You can customize the generated `Cuid` for each column.
+Specify the name of the column as the key and optionally specify the maxLength
+as an integer value greater than 4 but less than 32(`(($maxLength > 4) && ($maxLength < 32))`).
 
 ```php
   public static function cuidColumns(): array
@@ -146,6 +162,33 @@ The `cuidColumns` must return an array. You can customize the generated `Cuid` f
         return ['cuid' => 6, 'custom_column' => 10];
 
     }
+```
+
+To globally set the default maxLength, add this to the `config/app.php`:
+
+```diff
+<?php
+
+// config/app.php
+
++    /*
++    |--------------------------------------------------------------------------
++    | Cuid2 Size
++    |--------------------------------------------------------------------------
++    |
++    | This value determines the size of Cuid2. Set this in your ".env" file.
++    |
++    */
++
++    'cuid_size' => env('CUID_SIZE', 10),
+```
+
+Finally add this to the `.env` file
+
+```diff
+# .env
+
++ CUID_SIZE=10
 ```
 
 ## Why Cuid2?
